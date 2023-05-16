@@ -1,0 +1,1 @@
+export { default as timeout,a as time,timer} from './delay'
