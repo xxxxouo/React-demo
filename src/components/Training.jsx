@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Link, useNavigate,Navigate } from 'react-router-dom';
+import { Link, useNavigate,Navigate,Outlet, NavLink } from 'react-router-dom';
 import PageMeta from './PageMeta';
+import YoutubeForm from './YoutubeForm';
 
 function Training() {
   const ref1 = useRef(null)
@@ -85,6 +86,9 @@ function Training() {
 
   window.requestIdleCallback(process)
 
+  const active = ({isActive}) =>{
+    return isActive?'text-red-400 mt-2 border border-solid rounded-md px-3 py-1 border-green-400  hover:scale-125 duration-150 ease-in-out transition':`mt-2 border border-solid rounded-md px-3 py-1 border-green-400  hover:scale-125 duration-150 ease-in-out transition`
+  }
   return (
     <PageMeta>
         <>
@@ -97,7 +101,11 @@ function Training() {
             <h4>Now{count}, before:{prevCountRef.current}</h4>
             {/* <iframe src="https://www.tailwindcss.cn/docs" ref={refRect} allow='fullscreen' width={'100%'} style={{'height':'100vh'}}></iframe> */}
           </div>
-          <Link to={'/home'} state={{ title:'洁神'}} className=' mt-2 text-red-400 hover:scale-125 duration-150 ease-in-out transition'>点击跳转到首页</Link>
+          <div className=' mt-2 flex gap-3'>
+            <NavLink to={'/home'} state={{ title:'洁神'}} className={`mt-2 border border-solid rounded-md px-3 py-1 border-green-400  hover:scale-125 duration-150 ease-in-out transition `}>点击跳转到首页</NavLink>
+            <NavLink to={'/training/hook-form'}  className={active}>React-Hook-From</NavLink>
+          </div>
+          <Outlet />
         </>
     </PageMeta>
   )

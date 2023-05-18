@@ -1,14 +1,13 @@
 import { useState,useEffect, useCallback,useRef } from "react"
 
 export default function useThrottle(fn,ms){
-  const timer = useRef(-1)
+  const timer = useRef(null)
   const throttle = useCallback(()=>{
-    if(timer.current > -1){
+    if(timer.current){
       return;
     }
     timer.current = setTimeout(()=>{
       fn()
-      timer.current = -1
       clearTimeout(timer.current)
     },ms)
   },[fn,ms])

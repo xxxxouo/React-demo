@@ -7,6 +7,7 @@ import Home from '../components/Home'
 const Lodash = lazy(()=>import('../components/Lodash'))
 const Training = lazy(()=>import('../components/Training'))
 const Login = lazy(()=>import('@/components/Login'))
+const Form = lazy(()=> import('@/components/YoutubeForm'))
 
 // 登陆拦截
 export const PrivateRoute = ({ element,path })=>{
@@ -33,7 +34,13 @@ const GetRoutes = [
       element: <PrivateRoute 
                 element={ <Training />}
                 path='/training'
-              />
+              />,
+      children:[
+        {
+          path:'hook-form',
+          element: <Form />
+        }
+      ]
     },
     {
       path:'/login',

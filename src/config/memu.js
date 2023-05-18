@@ -5,11 +5,23 @@ const menuList = (t)=>[
   },
   {
     label: 'Loadsh',
-    href:'/lodash'
+    href:'/lodash',
+    children:[
+      {
+        label: '测试框',
+        href:'/lodash',
+      }
+    ]
   },
   {
     label: 'TrainingGround',
-    href:'/training'
+    href:'/training',
+    children:[
+      {
+        label: 'hook-form',
+        href:'/training/hook-form',
+      }
+    ]
   },
 ]
 export default menuList
