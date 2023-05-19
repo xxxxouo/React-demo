@@ -9,7 +9,7 @@ function RenderMenuList() {
   const MemuList = menuList(t)
 
   const classN = ({ isActive }) => {
-    return isActive ? `text-purple-500 font-bold leading-3rem` : 'leading-3rem'
+    return isActive ? `text-purple-500 font-bold leading-3rem px-6` : 'leading-3rem px-6'
   }
 
   return MemuList.map(route => {

@@ -8,7 +8,7 @@ background-color: #f1f5f9;
 pointer-events:auto;
 border-bottom-left-radius:10px;
 border-bottom-right-radius:10px;
-width: 150px;
+width: 120px;
 padding: 6px 0;
 ${( {$isOpen}) => !$isOpen && `
 visibility:hidden;
@@ -41,7 +41,7 @@ function RenderMenuItem({route}) {
     }
   },[targetRef,setTargetRef,isOpen,setIsOpen]) 
   return (
-    <div ref={setTargetRef} >
+    <div ref={setTargetRef} style={{padding:"0 1.5rem"}} >
       <NavLink className={classN} to={route.href} end>
         {route.label}
       </NavLink>

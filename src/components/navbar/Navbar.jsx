@@ -18,17 +18,19 @@ export default React.memo( function Navbar() {
   const dispath = useDispatch()
 
   return (
-    <TitleDiv className=' w-full h-12 relative flex'>
-      <div className=' grid grid-cols-4 h-full w-3/4'>
+    <TitleDiv className=' w-full h-12 relative justify-between flex'>
+      <div className='flex gap-3 ml-7'>
         <RenderMenu />
       </div>
-      <LanguageSelector />
-      <div className=' absolute right-0 top-3 mr-4'>
-        {
-          isLogin ?
-            <button onClick={() => dispath(logout())}> {t("退出登陆")} </button> :
-            <Link to='/login'>{t('登陆')}</Link>
-        }
+      <div className='flex gap-4 items-center mx-6'>
+        <LanguageSelector />
+        <div className=' '>
+          {
+            isLogin ?
+              <button onClick={() => dispath(logout())}> {t("退出登陆")} </button> :
+              <Link to='/login'>{t('登陆')}</Link>
+          }
+        </div>
       </div>
     </TitleDiv>
   )

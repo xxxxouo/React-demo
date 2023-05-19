@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, useNavigate,Navigate,Outlet, NavLink } from 'react-router-dom';
 import PageMeta from './PageMeta';
-import YoutubeForm from './YoutubeForm';
 
 function Training() {
   const ref1 = useRef(null)
