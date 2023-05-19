@@ -1,7 +1,6 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import useTranslation from '@/contexts/localization/useTranslation'
 
 const ChildrenSubMenu = styled.div`
 visibility:visible;
@@ -17,7 +16,6 @@ pointer-events:none;
 `}
 `
 function RenderMenuItem({route}) {
-  const { t } = useTranslation()
   const [ isOpen, setIsOpen ] = useState(false)
   const [ targetRef, setTargetRef] = useState(null)
 

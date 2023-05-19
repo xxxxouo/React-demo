@@ -5,16 +5,28 @@ import { DevTool } from '@hookform/devtools'
 let count = 0
 
 // react-hook-from 采用的是非受控组件形式 不会造成页面渲染
-function YoutubeForm() {
+ function YoutubeForm() {
   const { register, control, handleSubmit, formState:{errors} } = useForm({
-    defaultValues:{
-      username:'洁神',
-      email:'4854374@qq.com',
-      age: 18
+    defaultValues: async()=>{
+      const res = await fetch("https://jsonplaceholder.typicode.com/users/1")
+      if(res.ok){
+        const {username, email, phone} = await res.json()
+        return {
+          username,
+          email:'admin@example.com',
+          age: 18,
+          phone:[phone,""]
+        }
+      }
     }
+    // {
+    //   username:'洁神',
+    //   email:'admin@example.com',
+    //   age: 18
+    // }
   })
   count ++
-  
+
   const onSubmit = (data) =>{
     console.log('onSubmit',data);
   }
@@ -35,8 +47,17 @@ function YoutubeForm() {
         })} />
         <p className=' my-1 text-red-600'>{errors?.username?.message}</p>
         <label htmlFor="email">email:</label>
-        <input type="email" {...register('email')} className=' border border-solid border-gray-200' id='email'  />
-      
+        <input type="email" {...register('email',{
+          required:{
+            value:true,
+            message:"这是必填项"
+          },
+          validate:{
+            noAdmin:(value)=> value !== 'admin@example.com' || "请输入不同的电子邮箱",
+            notBlackList: (value)=> !value.endsWith("qq.com") || "qq邮箱是黑名单"
+          }
+        })} className=' border border-solid border-gray-200' id='email'  />
+        <p className=' my-1 text-red-600'>{errors?.email?.message}</p>
         <label htmlFor="age">age:</label>
         <input type="number" className=' border border-solid border-gray-200' id='age' {...register('age',{
           required:{
@@ -51,6 +72,10 @@ function YoutubeForm() {
           validate: value => Number(value) > 0 || '年龄不能小于0'
         })}/>
         <p className=' my-1 text-red-600 float-left'>{errors?.age?.message}</p>
+        <label htmlFor="MainPhone">主用手机号:</label>
+        <input type="text" className=' border border-solid border-gray-200' id='MainPhone' {...register("phone.0")} />
+        <label htmlFor="SparePhone">副用手机号:</label>
+        <input type="text" className=' border border-solid border-gray-200' id='SparePhone' {...register("phone.1")} />
         <button className=' bg-orange-400 mt-2 px-6 py-1'>Submit</button>
       </form>
       <DevTool control={control} />
