@@ -1,5 +1,5 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { Fragment } from 'react'
+import { useForm, useFieldArray } from 'react-hook-form'
 import { DevTool } from '@hookform/devtools'
 
 let count = 0
@@ -15,7 +15,10 @@ let count = 0
           username,
           email:'admin@example.com',
           age: 18,
-          phone:[phone,""]
+          phone:[phone,""],
+          hobby:[{
+            text:"鸡你太美"
+          }]
         }
       }
     }
@@ -24,6 +27,10 @@ let count = 0
     //   email:'admin@example.com',
     //   age: 18
     // }
+  })
+  const { fields, append, remove } = useFieldArray({
+    name:"hobby",
+    control
   })
   count ++
 
@@ -40,7 +47,7 @@ let count = 0
         <input type="text" className=' border border-solid border-gray-200' id='username' {...register('username',{
           maxLength: {
             value:4,
-            message:"maxLength is 2 "
+            message:"最大长度为4位"
           },
           required:'this is required',
           validate:value => value === '洁神牛逼' || '用户名只能输入洁神牛逼'
@@ -76,6 +83,23 @@ let count = 0
         <input type="text" className=' border border-solid border-gray-200' id='MainPhone' {...register("phone.0")} />
         <label htmlFor="SparePhone">副用手机号:</label>
         <input type="text" className=' border border-solid border-gray-200' id='SparePhone' {...register("phone.1")} />
+        
+        <div>
+          <label htmlFor="hobby">Hobby</label>
+          <div className=' flex flex-col gap-1'>
+            {
+              fields.map((field, index) =>(
+                <div key={field.id} className=" flex items-center relative" >
+                  <input type="text" className=' border border-solid border-gray-200' {...register(`hobby.${index}.text`)} />
+                  { index>0 && 
+                    <button type='button'className='bg-gray-400 absolute' style={{right:"-60px"}}  onClick={()=> remove(index)}>Delete</button>
+                  }
+                </div>
+              ))
+            }
+          </div>
+          <button type='button' className=' bg-green-400 mt-2 px-6 py-1' onClick={()=> append({text:"唱跳rap"})}>Add Hobby</button>
+        </div>
         <button className=' bg-orange-400 mt-2 px-6 py-1'>Submit</button>
       </form>
       <DevTool control={control} />
