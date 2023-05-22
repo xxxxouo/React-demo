@@ -1,8 +1,10 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 import user from './user/reducer'
+import test from './testExtra/reducer'
 const reducer = {
-  user
+  user,
+  test
 }
 
 const store = configureStore({

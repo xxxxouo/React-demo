@@ -3,7 +3,8 @@ import Cookies from 'js-cookie'
 import { getCity,timeDelay } from "./help";
 const initialState = {
   isLogin: Cookies.get('demoLogin')?? false,
-  fetchInfo: null
+  fetchInfo: null,
+  loading: false
 }
 
 // createAsyncThunk 专门处理异步操作的action  调用的时候 用  **dispath(fetchList())**
@@ -29,9 +30,11 @@ const user = createSlice({
   extraReducers:(build)=>{
     build.addCase(fetchList.fulfilled,(state,action)=>{
       state.fetchInfo = action.payload
+      state.loading = false
     });
     build.addCase(fetchList.pending,(state,action)=>{
       // console.log("fetchList.pending");
+      state.loading = true
     });
     build.addCase(fetchList.rejected,(state,action)=>{
       console.log("fetchList.rejected",action.payload);
