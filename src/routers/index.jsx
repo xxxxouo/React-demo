@@ -26,7 +26,7 @@ const GetRoutes = [
               />
     },
     {
-      path:'/home/',
+      path:'/home',
       element: <Home />
     },
     {
