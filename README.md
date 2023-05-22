@@ -1,6 +1,6 @@
 # 一个基于Vite创建的`React`项目
 
-## `start`
+## start
 ```sh
  yarn
 ```
@@ -8,7 +8,7 @@ start the development server
 ```sh
 yarn dev
 ```
-## `Package`
+## Package
 |    Package                                     |    Description                                        |
 |:-------------:                                 |:-----------------:                                    |
 |[tailwindcss](https://www.tailwindcss.cn)       | 无须书写`css` 快速构建 `html`                            |

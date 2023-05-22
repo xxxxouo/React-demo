@@ -1,7 +1,7 @@
 import React,{ useEffect,useMemo,useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { timeout,time,timer } from '../assets/common'
-import useThrottle from '../hooks/usethrottle'
+import useThrottle from '@/hooks/usethrottle'
 import { useDebounceScreen } from '../utils'
 import PageMeta from './PageMeta'
 export default function Lodash() {
