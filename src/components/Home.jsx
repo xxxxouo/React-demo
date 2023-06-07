@@ -4,6 +4,7 @@ import useTranslation from '@/contexts/localization/useTranslation'
 import { fetchList } from '@/state/user/reducer'
 import { useDispatch }  from 'react-redux'
 import PageMeta from './PageMeta'
+import { useMemo } from 'react'
 
 export default function Home() {
   const { state } = useLocation()

@@ -42,7 +42,7 @@ function RenderMenuItem({route}) {
   },[targetRef,setTargetRef,isOpen,setIsOpen]) 
   return (
     <div ref={setTargetRef} style={{padding:"0 1.5rem"}} >
-      <NavLink className={classN} to={route.href} end>
+      <NavLink className={classN} to={route.href}>
         {route.label}
       </NavLink>
       <ChildrenSubMenu className=' absolute' $isOpen={isOpen}>
