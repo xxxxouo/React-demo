@@ -12,7 +12,7 @@ async function extractNewScript(){
   while ((match = scriptReg.exec(html))) {
     result.push(match.groups.src)
   }
-  console.log(result,'result');
+  console.log(import.meta.env.MODE,'import.meta.env.MODE');
   return result
 }
 
