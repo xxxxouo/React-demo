@@ -40,7 +40,7 @@ function autoRefresh(){
   setTimeout(async()=>{
     const willUpdate = await needUpdate()
     if(willUpdate){
-      const result = comfirm('页面有更新,点击确定刷新页面')
+      const result = confirm('页面有更新,点击确定刷新页面')
       if(result) location.reload()
     }
     autoRefresh()
