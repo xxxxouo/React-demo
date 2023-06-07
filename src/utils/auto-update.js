@@ -12,7 +12,7 @@ async function extractNewScript(){
   while ((match = scriptReg.exec(html))) {
     result.push(match.groups.src)
   }
-  console.log(result);
+  console.log(result,'result');
   return result
 }
 
