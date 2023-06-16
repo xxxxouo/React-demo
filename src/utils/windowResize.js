@@ -11,9 +11,6 @@ export default function useResize(){
   }
   return width?? '请改变页面尺寸'
 }
-
-
-
 // js 写法
 // const debounce = (delay,fn) =>{
 //   let timer;

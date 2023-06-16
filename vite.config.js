@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import AutoImport from 'unplugin-auto-import/vite'
 import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(),AutoImport({
+    imports:['react','react-router-dom'],
+    eslintrc: {
+      enabled: true
+    },
+  })],
   base:'/',
   resolve:{
     // 配置 @别名   需要安装yarn add @types/node -D
