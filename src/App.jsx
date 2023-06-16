@@ -6,7 +6,6 @@ const Navbar = lazy(()=>import('@/components/navbar/Navbar'))
 
 function App() {
   const element = useRoutes(GetRoutes)
-
   return (
     <div className="App">
       <Navbar />
