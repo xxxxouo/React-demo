@@ -11,7 +11,10 @@ import XJNB from 'xjnb';
 //     <App />
 //   </React.StrictMode>
 // );
-
+const conss = ()=>{
+  return 1
+}
+conss()
 export default function XJButton() {
   return (
     <button style={{color:'red'}}> {XJNB()} </button>
