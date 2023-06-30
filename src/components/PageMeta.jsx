@@ -9,6 +9,7 @@ export default function PageMeta({children}) {
   //   })
   //   console.log(a);
   // })
+
   const { pathname } = useLocation()
   return (
     <div>
