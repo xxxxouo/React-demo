@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-test1",
+  "name": "monorepo-test-xj",
   "version": "1.0.2",
   "private": false,
   "main": "src/index.js",
@@ -36,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "gitHead": "699126069537b4c776f23edf139bdc6f94f09095"
 }
