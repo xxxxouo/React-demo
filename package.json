@@ -23,19 +23,27 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
     "@hookform/devtools": "^4.3.1",
     "@types/node": "^18.16.3",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.44.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.32.2",
     "js-cookie": "^3.0.5",
     "lerna": "^6.6.2",
     "postcss": "^8.4.21",
     "redux-logger": "^3.0.6",
     "tailwindcss": "^3.3.1",
     "unplugin-auto-import": "^0.16.4",
-    "vite": "^3.0.7"
+    "vite": "^3.0.7",
+    "vite-plugin-eslint": "^1.8.1"
   },
   "workspaces": [
     "packages/*"
