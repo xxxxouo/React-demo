@@ -1,4 +1,5 @@
 import React, {lazy, useState, Suspense} from 'react';
+import _ from 'react-dom'
 import {Link, Navigate, useRoutes, Outlet} from 'react-router-dom';
 import GetRoutes from './routers/index';
 import usePullToRefresh from './hooks/usePullToRefresh';
