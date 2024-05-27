@@ -48,7 +48,7 @@ const GetRoutes = [
     },
     {
       path:'/*',
-      element: <Navigate  to="/home"/>
+      element: <Navigate  to="/home" />
     }
   ]
 

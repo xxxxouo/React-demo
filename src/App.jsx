@@ -8,7 +8,7 @@ const Navbar = lazy(()=>import('@/components/navbar/Navbar'));
 
 function App() {
   const element = useRoutes(GetRoutes);
-  usePullToRefresh();
+  usePullToRefresh(); // 下拉刷新
   return (
     <div className="App">
       <Navbar />
